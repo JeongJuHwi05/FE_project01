@@ -5,23 +5,30 @@
         <v-toolbar-title class="ml-4">Armond Market</v-toolbar-title>
       </router-link>
 
-      <v-container fluid>
-        <v-row justify="center" align="center" class="navbar_main">
-          <v-toolbar-items>
-              <v-col>
-                <router-link to="/productList" style="cursor: pointer; text-decoration: none; color: black;">
-                  <btn class="navbar_btn"><span class="navbar_btn_text yellow_line">작품 보기</span></btn>
-                </router-link>
-              </v-col>
-              <v-col>
-                <btn class="navbar_btn"><span class="navbar_btn_text pink_line">Link 2</span></btn>
-              </v-col>
-              <v-col>
-                <btn class="navbar_btn"><span class="navbar_btn_text pink_line">Link 3</span></btn>
-              </v-col>
-          </v-toolbar-items>
-        </v-row>
-      </v-container>
+      <div class="menuBar">
+        <v-toolbar-items class="text-center">
+          <v-row justify="center" align="center">
+
+            <v-col cols="2" offset="5">
+              <router-link to="/productList">
+                <button type="button" class="menuBtn">작품 보기</button>
+              </router-link>
+            </v-col>
+
+            <v-col cols="2">
+              <router-link to="/">
+                <button type="button" class="menuBtn">판매 의뢰</button>
+              </router-link>
+            </v-col>
+
+            <v-col cols="2">
+              <router-link to="/ask">
+                <button type="button" class="menuBtn">문의 하기</button>
+              </router-link>
+            </v-col>
+          </v-row>
+        </v-toolbar-items>
+      </div>
 
       <!-- 우측에 추가메뉴 아이콘을 넣기 위해 v-spacer 엘리먼트 사용 -->
       <v-spacer></v-spacer>
@@ -147,43 +154,20 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  .navbar_main{
-    position: relative;
-    box-sizing: border-box;
-    font-size: 1.2rem;
-    font-weight: normal;
-    color: rgba(0,0,0,.4);
+  .menuBar{
+    margin: 0 0 0 80px;
+    width: 1000px;
   }
 
-  .navbar_btn{
-      text-decoration: none;
-      margin: 1rem;
-      color: black;
-      padding:0px;
-      font-size: 1rem;
-      width:100%;
+  .menuBtn{
+    color: black;
+    font-size: 16px;
   }
-  .navbar_btn_text{
-      box-sizing: border-box;
-      color: black;
-      margin: 0px;
-  }
-  .navbar_btn_text::before{
-      content: "";
-      box-sizing: border-box;
-      border-radius: 5px;
-      height: 3px;
-      background: black;
-      position: absolute;
-      width: 100%;
-      bottom: 40%;
-      visibility: hidden;
-      transform: scaleX(0);
-      transition: 0.15s linear;
-  }
-  .navbar_btn_text:hover::before,
-  .navbar_btn_text:focus::before{
-      color: aqua;
+
+  .menuBtn:hover{
+    font-weight: 600;
+    font-size: 17px;
+    text-shadow: 2px 2px 6px rgb(218, 218, 218);
   }
 
 </style>

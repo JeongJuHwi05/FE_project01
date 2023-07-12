@@ -36,6 +36,7 @@
 
         <div>
             <h2>자주 묻는 질문</h2>
+
             <v-card class="mx-auto mt-5" max-width="1000px" v-for="(item, index) in qnaCard" :key="index">
                 <v-card-actions>
                     <v-card-title>{{ "Q. " + item.question }}</v-card-title>
@@ -73,6 +74,11 @@
                 {question: '배송은 직접 해주시나요?', answer: '네, 상품 가치를 지키기위해 아몬드마켓에서 직접 배송을 해드리고 있습니다. 그래서 타 쇼핑몰과 다르게 배송일이 좀 더 걸리는 점 양해해주시기 바랍니다. 고객님께 가치 그대로 전해드리기 위한 아몬드마켓은 최선을 다하겠습니다.'}
             ]
         }),
+        mounted() {
+            // 화면 전환 시 스크롤 맨 위로
+            window.scrollTo(0, 0);
+            window.addEventListener('scroll', this.handleScroll);
+        },
         methods:{
             cardShow(index) {
                 this.show = this.show === index ? null : index;

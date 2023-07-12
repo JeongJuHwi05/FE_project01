@@ -172,17 +172,21 @@
     <v-container class="bottomSection">
       <v-row align="center" justify="center">
         <v-col cols="3" class="text-center" style="border-right: 1px solid black">
-          <p class="text-h5 font-weight-black google-font">예술품 문의하기</p>
-          <v-btn icon text large>
-            <v-icon>mdi-plus</v-icon>
-          </v-btn>
+          <p class="text-h5 font-weight-black google-font">판매 의뢰</p>
+          <router-link to="/">
+            <v-btn icon text large class="menuBtn">
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+          </router-link>
         </v-col>
 
         <v-col cols="3" class="text-center">
-          <p class="text-h5 font-weight-black google-font">예술품 신청하기</p>
-          <v-btn icon text large>
-            <v-icon>mdi-plus</v-icon>
-          </v-btn>
+          <p class="text-h5 font-weight-black google-font">문의하기</p>
+          <router-link to="/ask">
+            <v-btn icon text large class="menuBtn">
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+          </router-link>
         </v-col>
       </v-row>
     </v-container>
@@ -230,15 +234,15 @@
         // 버튼 클릭 값 변수(초기에 유화 그림 버튼이 활성화 되도록 값 지정)
         clickPaintingBtnValue: 'paint',
 
-        // 버튼 value별 색상
-        paintingBtnBackColors: {
-          paint: '#FF6F00', // amber-darken-4
-          plant: '#1B5E20', // green-darken-4
-          pop: '#6A1B9A',   // purple-darken-3
-          per: '#D50000',  // red-accent-4
-          sens: '#263238',  // blue-grey-darken-4
-          kids: '#0091EA'   // light-blue-accent-4
-        },
+          // 버튼 value별 색상
+          paintingBtnBackColors: {
+            paint: '#FF6F00', // amber-darken-4
+            plant: '#1B5E20', // green-darken-4
+            pop: '#6A1B9A',   // purple-darken-3
+            per: '#D50000',  // red-accent-4
+            sens: '#263238',  // blue-grey-darken-4
+            kids: '#0091EA'   // light-blue-accent-4
+          },
         
         // 유화 그림 파일명 배열
         paintCardItems:[
@@ -516,6 +520,13 @@
     padding: 30px 70px;
   }
 
+  .paintSection{
+    background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ), url('https://www.art1.com/images/main/main_curator_bg.jpg');
+  }
+
   .middleLine{
     margin: 30px 0;
     padding: 50px 0;
@@ -523,13 +534,6 @@
         rgba(255, 255, 255, 0.8),
         rgba(255, 255, 255, 0.8)
       ), #546E7A;
-  }
-
-  .paintSection{
-    background-image: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ), url('https://www.art1.com/images/main/main_curator_bg.jpg');
   }
 
   .btnStyle{

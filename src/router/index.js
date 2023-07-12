@@ -44,6 +44,16 @@ const routes = [
     component: ()=> import('../components/productList_page.vue')
   },
   {
+    path:'/productDetail',
+    name:'productDetail_page',
+    component: ()=> import('../components/productDetail_page.vue')
+  },
+  {
+    path:'/ask',
+    name:'ask_page',
+    component: ()=> import('../components/ask_page.vue')
+  },
+  {
     path:'/armondPlus',
     name:'armondPlus_page',
     component: ()=> import('../components/armondPlus_page.vue')
