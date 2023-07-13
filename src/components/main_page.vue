@@ -85,7 +85,7 @@
     <v-container>
       <v-row>
         <v-col cols="12" class="text-center mt-6">
-          <h1 class="display-1 font-weight-black google-font">아몬드 마켓, 도자기 추천</h1>
+          <h1 class="display-1 font-weight-black google-font">아몬드 마켓, 도자기 추천?</h1>
         </v-col>
       </v-row>
 
