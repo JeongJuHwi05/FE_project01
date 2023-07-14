@@ -11,19 +11,19 @@
 
             <v-col cols="2" offset="5">
               <router-link to="/productList">
-                <button type="button" class="menuBtn">작품 보기</button>
+                <button type="button" class="menuBtn">그림</button>
               </router-link>
             </v-col>
 
             <v-col cols="2">
               <router-link to="/">
-                <button type="button" class="menuBtn">판매 의뢰</button>
+                <button type="button" class="menuBtn">도자기</button>
               </router-link>
             </v-col>
 
             <v-col cols="2">
               <router-link to="/ask">
-                <button type="button" class="menuBtn">문의 하기</button>
+                <button type="button" class="menuBtn">공예품</button>
               </router-link>
             </v-col>
           </v-row>
@@ -160,7 +160,7 @@
   }
 
   .menuBtn{
-    color: black;
+    color: rgb(102, 102, 102);
     font-size: 16px;
   }
 
@@ -168,6 +168,7 @@
     font-weight: 600;
     font-size: 17px;
     text-shadow: 2px 2px 6px rgb(218, 218, 218);
+    color: black;
   }
 
 </style>

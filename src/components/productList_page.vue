@@ -25,21 +25,59 @@
             </v-row>
         </div>
 
-        <div class="divSecondSection">
-            <v-row justify="center" class="mb-5 mt-2">
-                <template v-for="(col, index) in categoryCols">
-                    <v-col :key="index" :cols="col.width" sm="12" md="4" lg="2" xl="2">
-                        <v-btn x-large text block rounded
-                        class="font-weight-bold text-h6 btnStyle"
-                        :class="{'active': clickCategoryBtnValue === col.value}"
-                        :style="{'background-color': clickCategoryBtnValue === col.value ? categoryBtnBackColors[col.value] : '#FFFFFF',
-                                'color': clickCategoryBtnValue === col.value ? '#FFFFFF' : ''}"
-                        @click="fnCategoryBtnClick(col.value)">
-                        {{ col.label }}
-                        </v-btn>
-                    </v-col>
-                </template>
-            </v-row>
+        <div class="divSection">
+            <div v-if="clickCategoryBtnValue === 'painting'">
+                <!-- 그림 추천 카테고리 버튼 -->
+                <v-row justify="center">
+                    <template v-for="(col, index) in paintingCols">
+                        <v-col :key="index" :cols="col.width" sm="12" md="4" lg="1" xl="1">
+                            <v-btn large text block rounded
+                            class="font-weight-bold text-h6 btnStyle"
+                            :class="{'active': clickPaintingBtnValue === col.value}"
+                            :style="{'background-color': clickPaintingBtnValue === col.value ? paintingBtnBackColors[col.value] : '#FFFFFF',
+                                    'color': clickPaintingBtnValue === col.value ? '#FFFFFF' : ''}"
+                            @click="fnPaintingBtnClick(col.value)">
+                            {{ col.label }}
+                            </v-btn>
+                        </v-col>
+                    </template>
+                </v-row>
+            </div>
+
+            <div class="divSection" v-else-if="clickCategoryBtnValue === 'pottery'">
+                <!-- 도자기 추천 카테고리 버튼 -->
+                <v-row justify="center">
+                    <template v-for="(col, index) in potteryCols">
+                        <v-col :key="index" :cols="col.width" sm="12" md="4" lg="1" xl="1">
+                            <v-btn large text block rounded
+                            class="font-weight-bold text-h6 btnStyle"
+                            :class="{'active': clickPotteryBtnValue === col.value}"
+                            :style="{'background-color': clickPotteryBtnValue === col.value ? potteryBtnBackColors[col.value] : '#FFFFFF',
+                                'color': clickPotteryBtnValue === col.value ? '#FFFFFF' : ''}"
+                            @click="fnPotteryBtnClick(col.value)">
+                            {{ col.label }}
+                            </v-btn>
+                        </v-col>
+                    </template>
+                </v-row>
+            </div>
+
+            <div class="divSection" v-else-if="clickCategoryBtnValue === 'craft'">
+                <!-- 공예품 추천 카테고리 버튼 -->
+                <v-row justify="center">
+                    <template v-for="(col, index) in craftCols">
+                        <v-col :key="index" :cols="col.width" sm="12" md="4" lg="1" xl="1">
+                            <v-btn large text block rounded
+                            class="font-weight-bold text-h6 btnStyle"
+                            :class="{'active': clickCraftBtnValue === col.value}"
+                            :style="{'background-color': clickCraftBtnValue === col.value ? craftBtnBackColors[col.value] : '#FFFFFF', 'color': clickCraftBtnValue === col.value ? '#FFFFFF' : ''}"
+                            @click="fnCraftBtnClick(col.value)">
+                            {{ col.label }}
+                            </v-btn>
+                        </v-col>
+                    </template>
+                </v-row>
+            </div>
         </div>
 
         <template>
@@ -77,6 +115,7 @@
     export default {
         data() {
             return {
+                folderSt: '/',
                 // storage에서 불러올 이미지 담을 객체
                 images: [],
 
@@ -89,7 +128,7 @@
                 // 그림 추천 카테고리 버튼
                 categoryCols: [
                     { label: '전체', width: 1, value: 'all' },
-                    { label: '그림', width: 1, value: 'paint' },
+                    { label: '그림', width: 1, value: 'painting' },
                     { label: '도자기', width: 1, value: 'pottery' },
                     { label: '공예품', width: 1, value: 'craft' }
                 ],
@@ -104,6 +143,73 @@
                     pottery: '#616161',   // grey-darken-2
                     craft: '#616161'  // grey-darken-2
                 },
+
+                // 그림 추천 카테고리 버튼
+                paintingCols: [
+                    { label: '전체', width: 1, value: 'all' },
+                    { label: '유화 그림', width: 1, value: 'paint' },
+                    { label: '식물 그림', width: 1, value: 'plant' },
+                    { label: '팝아트', width: 1, value: 'pop' },
+                    { label: '인물화', width: 1, value: 'per' },
+                    { label: '북유럽 감성', width: 1, value: 'sens' },
+                    { label: '아이방', width: 1, value: 'kids' }
+                ],
+                // 버튼 클릭 값 변수(초기에 유화 그림 버튼이 활성화 되도록 값 지정)
+                clickPaintingBtnValue: 'all',
+
+                // 버튼 value별 색상
+                paintingBtnBackColors: {
+                    all: '#000000', // black
+                    paint: '#FF6F00', // amber-darken-4
+                    plant: '#1B5E20', // green-darken-4
+                    pop: '#6A1B9A',   // purple-darken-3
+                    per: '#D50000',  // red-accent-4
+                    sens: '#263238',  // blue-grey-darken-4
+                    kids: '#0091EA'   // light-blue-accent-4
+                },
+                // 도자기 추천 카테고리 버튼
+                potteryCols: [
+                    { label: '전체', width: 1, value: '/' },
+                    { label: '찻잔', width: 2, value: 'teacup' },
+                    { label: '백자 · 청자', width: 2, value: 'whitePorcelain' },
+                    { label: '화병', width: 2, value: 'vase' },
+                    { label: '다기세트', width: 2, value: 'teaSet' },
+                    { label: '인테리어 소품', width: 4, value: 'interior' }
+                ],
+                // 버튼 클릭 값 변수(초기에 찻잔 버튼이 활성화 되도록 값 지정)
+                clickPotteryBtnValue: '/',
+
+                // 버튼 value별 색상
+                    potteryBtnBackColors: {
+                    all: '#000000', // black
+                    teacup: '#78909C', // blue-grey-lighten-1
+                    whitePorcelain: '#757575', // grey-darken-1
+                    vase: '#00838F',   // cyan-darken-3
+                    teaSet: '#283593',  // indigo-darken-3
+                    interior: '#6A1B9A'  // purple-darken-3
+                },
+
+                // 공예품 추천 카테고리 버튼
+                craftCols: [
+                    { label: '전체', width: 1, value: '/' },
+                    { label: '나전칠기', width: 2, value: 'lacquerware' },
+                    { label: '유리 공예', width: 2, value: 'glass' },
+                    { label: '레진 공예', width: 2, value: 'resin' },
+                    { label: '석고 공예', width: 2, value: 'plaster' },
+                    { label: '종이 공예', width: 4, value: 'paper' }
+                ],
+                // 버튼 클릭 값 변수(초기에 나전칠기 버튼이 활성화 되도록 값 지정)
+                clickCraftBtnValue: '/',
+
+                // 버튼 value별 색상
+                craftBtnBackColors: {
+                    all: '#000000', // black
+                    lacquerware: '#212121', // grey-darken-4
+                    glass: '#A1887F', // brown-lighten-2
+                    resin: '#FF6E40',   // deep-orange-accent-2
+                    plaster: '#26A69A',  // teal-lighten-1
+                    paper: '#689F38'  // light-green-darken-2
+                },
             };
         },
         mounted() {
@@ -113,7 +219,7 @@
             window.addEventListener('scroll', this.handleScroll);
             
             const storageRef = oFirebaseStorage.ref();
-            const rootRef = storageRef.child('/'); // 루트 폴더
+            const rootRef = storageRef.child(this.folderSt); // 루트 폴더
 
             this.getAllImagesFromFolder(rootRef);
         },
@@ -143,6 +249,42 @@
             // 이미지 로딩 완료 후 호출될 콜백 함수
             handleImageLoad() {
                 this.isLoading = false; // 로딩 상태 변경
+            },
+
+            fnCategoryBtnClick(value) {
+                this.clickCategoryBtnValue = value;
+
+                this.storageRef = oFirebaseStorage.ref();
+                if(value == 'all'){
+                    this.rootRef = this.storageRef.child('/');
+                } else{
+                    this.rootRef = this.storageRef.child('/'+ value);
+                }
+                this.getAllImagesFromFolder(this.rootRef);
+            },
+
+            fnPaintingBtnClick(value) {
+                this.clickPaintingBtnValue = value;
+
+                this.storageRef = oFirebaseStorage.ref();
+                if(value == 'all'){
+                    this.rootRef = this.storageRef.child('/painting/');
+                } else{
+                    this.rootRef = this.storageRef.child('/painting/'+ value);
+                }
+                this.getAllImagesFromFolder(this.rootRef);
+            },
+
+            fnPotteryBtnClick(value){
+                this.clickPotteryBtnValue = value;
+                this.folderSt= '/pottery';
+                this.getAllImagesFromFolder();
+            },
+
+            fnCraftBtnClick(value){
+                this.clickCraftBtnValue = value;
+                this.folderSt= '/craft';
+                this.getAllImagesFromFolder();
             },
 
             setImgMouse(image, value) {
