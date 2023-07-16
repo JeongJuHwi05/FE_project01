@@ -40,7 +40,8 @@
         created() {
             firebase.auth().onAuthStateChanged((user) => {
                 if (user) {
-                    this.userId = user.uid; // Firebase 계정 ID를 userId 변수에 저장
+                    // Firebase 계정 ID를 userId 변수에 저장
+                    this.userId = user.email;
                 }
             });
         },

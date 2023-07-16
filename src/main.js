@@ -4,6 +4,10 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
+import 'viewerjs/dist/viewer.css';
+import Viewer from 'v-viewer';
+
+Vue.use(Viewer);
 
 // 파이어베이스 앱 객체 모듈 가져오기
 import firebase from 'firebase/compat/app'

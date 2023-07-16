@@ -33,7 +33,7 @@
     <v-container>
       <v-row>
         <v-col cols="12" class="text-center mt-6">
-          <h1 class="display-1 font-weight-black">예술 구매의 시작, Art is Diamond</h1>
+          <h1 class="display-1 font-weight-black">일상 예술의 시작, Art is Diamond</h1>
         </v-col>
       </v-row>
 
@@ -48,7 +48,7 @@
     <div class="divSection paintSection">
       <v-row>
         <v-col cols="12" class="text-center mt-6">
-          <h1 class="display-1 font-weight-black google-font">아몬드 마켓, 그림 추천</h1>
+          <h1 class="display-1 font-weight-black google-font">이달의 추천 그림</h1>
         </v-col>
       </v-row>
 
@@ -85,7 +85,7 @@
     <v-container>
       <v-row>
         <v-col cols="12" class="text-center mt-6">
-          <h1 class="display-1 font-weight-black google-font">아몬드 마켓, 도자기 추천?</h1>
+          <h1 class="display-1 font-weight-black google-font">신작 도자기</h1>
         </v-col>
       </v-row>
 
@@ -136,7 +136,7 @@
     <v-container>
       <v-row>
         <v-col cols="12" class="text-center mt-6">
-          <h1 class="display-1 font-weight-black google-font">아몬드 마켓, 공예품 추천</h1>
+          <h1 class="display-1 font-weight-black google-font">새로운 분야! 공예품</h1>
         </v-col>
       </v-row>
 
@@ -167,30 +167,6 @@
         </v-col>
       </v-row>
     </v-container>
-
-    <!-- 하단 서비스 -->
-    <v-container class="bottomSection">
-      <v-row align="center" justify="center">
-        <v-col cols="3" class="text-center" style="border-right: 1px solid black">
-          <p class="text-h5 font-weight-black google-font">판매 의뢰</p>
-          <router-link to="/">
-            <v-btn icon text large class="menuBtn">
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
-          </router-link>
-        </v-col>
-
-        <v-col cols="3" class="text-center">
-          <p class="text-h5 font-weight-black google-font">문의하기</p>
-          <router-link to="/ask">
-            <v-btn icon text large class="menuBtn">
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
-          </router-link>
-        </v-col>
-      </v-row>
-    </v-container>
-
   </div>
 </template>
 

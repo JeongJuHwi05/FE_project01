@@ -3,7 +3,7 @@
         <v-row>
             <v-col cols="12" class="text-center" style="margin-top: 120px;">
                 <h1 class="font-weight-black text-h4">회원가입</h1>
-                <p class="mt-4" style="color: #3E2723;">지금 바로 아몬드 마켓의 회원이 되어 일상의 예술을 경험해보세요!</p>
+                <p class="mt-4" style="color: #3E2723;">지금 바로 아몬드 회원이 되어 일상의 예술을 경험해보세요!</p>
             </v-col>
         </v-row>
 

@@ -2,70 +2,42 @@
   <v-app>
     <v-app-bar color="white" fixed>
       <router-link to="/" style="cursor: pointer; text-decoration: none; color: black;">
-        <v-toolbar-title class="ml-4">Armond Market</v-toolbar-title>
+        <v-toolbar-title class="ml-4">Armond</v-toolbar-title>
       </router-link>
 
       <div class="menuBar">
         <v-toolbar-items class="text-center">
           <v-row justify="center" align="center">
 
-            <v-col cols="2" offset="5">
-              <router-link to="/productList">
-                <button type="button" class="menuBtn">그림</button>
+            <v-col cols="3" offset="6">
+              <router-link :to="fnGetButtonLink">
+                <button type="button" class="menuBtn">
+                  <v-icon>mdi-palette</v-icon>
+                  예술품 구경하기
+                </button>
               </router-link>
             </v-col>
 
-            <v-col cols="2">
-              <router-link to="/">
-                <button type="button" class="menuBtn">도자기</button>
-              </router-link>
-            </v-col>
-
-            <v-col cols="2">
-              <router-link to="/ask">
-                <button type="button" class="menuBtn">공예품</button>
-              </router-link>
-            </v-col>
           </v-row>
         </v-toolbar-items>
       </div>
 
       <!-- 우측에 추가메뉴 아이콘을 넣기 위해 v-spacer 엘리먼트 사용 -->
       <v-spacer></v-spacer>
-
-      <v-card class="pa-4" flat width="300px" :style="{'display': searchYn ? '' : 'none'}">
-        <v-text-field
-          v-model="searchMsg"
-          clearable
-          hide-details
-          append-icon="mdi-magnify"
-          underlined
-          label="검색어를 입력하세요."
-          type="text"
-          @click:append="fnSearch()"
-        />
-        </v-card>
-
       <nav>
-        <div>
-          <router-link to="/" >
-              <v-icon large @click="fnSearchClick()" :style="{'display': searchYn ? 'none' : ''}">mdi-magnify</v-icon>
-          </router-link>
-          
+        <div>          
           <router-link to="/login" label="로그인">
             <v-btn text v-if="!fnGetAuthStatus">
               <v-icon large>mdi-login-variant</v-icon>
+              로그인
             </v-btn>
           </router-link>
 
           <router-link to="/" >
             <v-btn text @click="fnDoLogout" v-if="fnGetAuthStatus">
               <v-icon large>mdi-logout-variant</v-icon>
+              로그아웃
             </v-btn>
-          </router-link>
-
-          <router-link to="/" >
-            <v-icon large>mdi-account-circle</v-icon>
           </router-link>
         </div>
       </nav>
@@ -108,35 +80,20 @@
 <script>
   export default {
     name: 'App',
-    data(){
-      return{
-        // 검색창 입력값 변수
-        searchMsg: '',
-
-        // 검색버튼 클릭값 변수
-        searchYn: false  
-      }
-    },
     computed: {
       // 스토어에서 현재 인증 상태인지 반환
       fnGetAuthStatus() {
         return this.$store.getters.fnGetAuthStatus
       },
+      fnGetButtonLink() {
+        // 사용자 로그인 여부 확인
+        const isLoggedIn = this.fnGetAuthStatus;
+
+        // 로그인되어 있으면 "/productList"로 이동, 그렇지 않으면 "/login"으로 이동
+        return isLoggedIn ? '/productList' : '/login';
+      },
     },
     methods:{
-      fnSearch(){
-        if(this.searchMsg.length > 0){
-          alert('검색창에 ' + this.searchMsg + " 입력 되었습니다.");
-        }else{
-          this.searchYn = false
-          alert('검색어를 입력해주세요.');
-        }
-      },
-
-      fnSearchClick(){
-        return this.searchYn = !this.searchYn; 
-      },
-
       // 스토어의 로그아웃 기능 사용
       fnDoLogout() {
         this.$store.dispatch('fnDoLogout')

@@ -3,6 +3,7 @@
         <v-row>
             <v-col cols="12" class="text-center" style="margin-top: 120px;">
                 <h1 class="font-weight-black text-h4">로그인</h1>
+                <p class="mt-4" style="color: #3E2723;">아몬드 회원분들만 이용하실 수 있습니다. 가입을 안하셨다면 지금 바로 가입해보세요!</p>
             </v-col>
         </v-row>
 
@@ -20,7 +21,6 @@
                             <router-link to="/join">
                                 <v-btn large class="font-weight-bold text-subtitle-2 mr-4" type="submit" v-if="!fnGetLoading" outlined>회원가입</v-btn>
                             </router-link>
-                            <v-btn large class="font-weight-bold text-subtitle-2" type="submit" v-if="!fnGetLoading" color="#757575" dark>비밀번호 찾기</v-btn>
                         </div>
 
                         <!-- 시간지연의 경우 회전 프로그레스 원 표시 -->

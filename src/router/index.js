@@ -12,22 +12,12 @@ const routes = [
     component: ()=> import('../components/main_page.vue'),
     // 메인페이지는 인증과 연동
     mate:{bAuth: true}
-    // ,
-    // children:[
-    //   {path:'/login', component: ()=> import('../components/login_page.vue')}
-    // ]
   },
   {
     path:'/login',
     name: 'login_page',
     component: ()=> import('../components/login_page.vue')
   },
-  {
-    path:'/join',
-    name: 'join_page',
-    component: ()=> import('../components/join_page.vue')
-  },
-  
   {
     path:'/join',
     name: 'join_page',
@@ -42,16 +32,6 @@ const routes = [
     path:'/productList',
     name:'productList_page',
     component: ()=> import('../components/productList_page.vue')
-  },
-  {
-    path:'/productDetail',
-    name:'productDetail_page',
-    component: ()=> import('../components/productDetail_page.vue')
-  },
-  {
-    path:'/ask',
-    name:'ask_page',
-    component: ()=> import('../components/ask_page.vue')
   },
   {
     path:'/armondPlus',
