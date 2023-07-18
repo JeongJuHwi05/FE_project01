@@ -1,9 +1,4 @@
-# almond_market
-
-## Project setup
-```
-npm install
-```
+# almond
 
 ### Compiles and hot-reloads for development
 ```
@@ -17,8 +12,8 @@ npm run build
 
 ### Lints and fixes files
 ```
-npm run lint
+firebase deploy
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 사이트 바로 가기
+https://almondmarket-bef07.web.app/#/

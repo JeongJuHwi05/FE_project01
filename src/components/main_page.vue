@@ -174,12 +174,6 @@
   export default {
     data(){
       return{
-        // 검색창 입력값 변수
-        searchMsg: '',
-
-        // 검색버튼 클릭값 변수
-        searchYn: false,
-
         // 스크롤 상태에 따라 버튼 표시 여부
         showScrollTopButton: false,
 

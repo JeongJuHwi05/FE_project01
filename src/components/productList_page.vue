@@ -143,7 +143,7 @@
                 ],
                 
                 // 버튼 클릭 값 변수(초기에 유화 그림 버튼이 활성화 되도록 값 지정)
-                clickCategoryBtnValue: 'craft',
+                clickCategoryBtnValue: 'all',
 
                 // 버튼 value별 색상
                 categoryBtnBackColors: {

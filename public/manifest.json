@@ -1,19 +1,19 @@
-{ "name": "Armond Market",
-  "short_name": "Armond Market",
-  "icons": [{
-      "src": "./favicon.ico",
+{ "name": "Armond",
+  "short_name": "Armond",
+  "icons": [
+    {
+      "src": "./image/favicon/armond-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./favicon.ico",
+      "src": "./image/favicon/armond-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#FFFFFF",
   "theme_color": "#FFFFFF"
 }
